@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cryptoListFragment">
+
+    <fragment
+        android:id="@+id/cryptoListFragment"
+        android:name="com.example.currencytracker.cryptolist.CryptoListFragment"
+        android:label="fragment_crypto_list"
+        tools:layout="@layout/fragment_crypto_list" >
+        <action
+            android:id="@+id/action_cryptoListFragment_to_cryptoDetailsFragment"
+            app:destination="@id/cryptoDetailsFragment" />
+        <argument
+            android:name="currency"
+            app:argType="string" />
+        <argument
+            android:name="price"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/cryptoDetailsFragment"
+        android:name="com.example.currencytracker.cryptodetails.CryptoDetailsFragment"
+        android:label="fragment_crypto_details"
+        tools:layout="@layout/fragment_crypto_details" >
+        <action
+            android:id="@+id/action_cryptoDetailsFragment_to_cryptoListFragment"
+            app:popUpTo="@id/cryptoListFragment" />
+    </fragment>
+</navigation>
