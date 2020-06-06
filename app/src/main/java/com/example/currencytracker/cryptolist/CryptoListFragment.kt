@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.currencytracker.CryptoRepository
 import com.example.currencytracker.R
+import com.example.currencytracker.cryptodetails.CryptoDetailsViewModel
+import com.example.currencytracker.cryptodetails.CryptoDetailsViewState
 import com.example.currencytracker.models.Cryptocurrency
 
 import kotlinx.android.synthetic.main.fragment_crypto_list.view.*
@@ -47,13 +49,12 @@ class CryptoListFragment : Fragment() {
     }
 
     fun showCryptoDetails(cryptocurrency: Cryptocurrency) {
-        val currency: String = cryptocurrency.currency
-        val price: Float = cryptocurrency.price
-//        requireView().findNavController().navigate(R.id.action_cryptoListFragment_to_cryptoDetailsFragment)
-//        val action = CryptoListFragmentDirections.actionCryptoListFragmentToCryptoDetailsFragment()
-//        view.findNavController().navigate(action)
-        val bundle = bundleOf("currency" to currency, "price" to price )
-        requireView().findNavController().navigate(R.id.action_cryptoListFragment_to_cryptoDetailsFragment, bundle)
+//        val currency: String = cryptocurrency.currency
+//        val price: Float = cryptocurrency.price
+//        val bundle = bundleOf("currency" to currency, "price" to price )
+//        requireView().findNavController().navigate(R.id.action_cryptoListFragment_to_cryptoDetailsFragment, bundle)
+        var action = CryptoListFragmentDirections.actionCryptoListFragmentToCryptoDetailsFragment(cryptocurrency.currency, cryptocurrency.price)
+        requireView().findNavController().navigate(action)
     }
 
 }
